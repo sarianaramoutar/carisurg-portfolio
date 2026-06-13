@@ -4,6 +4,9 @@ This repository contains coursework completed as part of the CariSurg Healthcare
 
 The project focuses on emergency department triage systems, clinical data analysis and AI-assisted clinical decision support. The aim is to improve patient prioritisation and operational efficiency in Caribbean healthcare settings. 
 
+## Intended Audience
+This repository is intended for programme tutors, clinical reviewers and fellow trainees interested in emergency department triage, healthcare AI, and clinical data analysis. 
+
 ## Repository Structure
 ### notebooks/
 Jupyter notebooks developed during Week 0, covering: 
@@ -19,7 +22,7 @@ Written coursework and project documentation, including:
 - Week 1 preliminary research proposal
 
 ### data/
-Datasets used throughout the programme. 
+Datasets used throughout the programme. The Week 0 de-identified triage dataset was provided as part of the CariSurg training programme and is included for educational purposes.
 
 ## Project Themes
 ### Week 0 - Foundations of Clinical Data Science
