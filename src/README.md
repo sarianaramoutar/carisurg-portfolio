@@ -1,3 +1,3 @@
-# src 
+# Source Code
 
-This folder is for specific work from Week 8+
+This directory is reserved for reusable Python scripts and project code developed during the programme.
