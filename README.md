@@ -1,54 +1,72 @@
 # CariSurg Portfolio
-## Overview
-This repository contains coursework completed as part of the CariSurg Healthcare AI Training Programme.
+A portfolio repository containing coursework completed for the CariSurg Healthcare AI Training Programme 2026.
 
-The project focuses on emergency department triage systems, clinical data analysis and AI-assisted clinical decision support. The aim is to improve patient prioritisation and operational efficiency in Caribbean healthcare settings. 
+## Purpose
+This repository documents work completed during the CariSurg Healthcare AI Training Programme. It contains exploratory data analysis notebooks, technical reports and research documents developed throughout the programme. 
 
-## Intended Audience
-This repository is intended for programme tutors, clinical reviewers and fellow trainees interested in emergency department triage, healthcare AI, and clinical data analysis. 
+The project focuses on clinical data analysis and AI-assisted clinical decision support. Its intended aim is to improve patient prioritisation and operational efficiency in Caribbean healthcare settings. 
+
+The repository is intended for programme instructors, reviewers and other readers who wish to understand the methods, findings and deliverables produced throughout this project. 
+
+## Installation
+Clone the repository: 
+
+git clone https://github.com/sarianaramoutar/carisurg-portfolio.git 
+
+cd carisurg-portfolio
+
+Create and activate a virtual environment: 
+```bash
+python -m venv .venv
+```
+
+Windows: 
+```bash
+.venv\Scripts\activate
+```
+
+macOS/Linux: 
+```bash
+source .venv/bin/activate
+```
+
+Install the required libraries: 
+```bash
+pip install -r requirements.txt
+```
+
+## Usage 
+Open the Jupyter notebooks located in the notebooks/ directory:
+```bash
+jupyter lab
+```
+
+The reports and written submissions can be found in the docs/ directory as PDF files.
 
 ## Repository Structure
-### notebooks/
-Jupyter notebooks developed during Week 0, covering: 
-- Gender data cleaning
-- Respiratory rate data cleaning and imputation
-- Exploratory clinical data visualisation
+carisurg-portfolio/ 
 
-### docs/
-Written coursework and project documentation, including: 
-- Week 0 clinical analyses
-- Week 0 AI triage framework design
-- Week 1 literature review
-- Week 1 preliminary research proposal
+├── data/         Dataset used for Week 0 analysis 
 
-### data/
-Datasets used throughout the programme. The Week 0 de-identified triage dataset was provided as part of the CariSurg training programme and is included for educational purposes.
+├── docs/         Reports, proposals, and written submissions 
 
-## Project Themes
-### Week 0 - Foundations of Clinical Data Science
-Topics explored:
-- Clinical data cleaning
-- Missing data management
-- Data visualisation
-- Vital sign interpretation
-- AI-assisted triage system design
+├── notebooks/    Jupyter notebooks used for data analysis 
 
-### Week 1 - Research and Proposal Development
-Activities included: 
-- Literature review of AI-assisted emergency triage systems
-- Critical analysis of clinical decision-support tools
-- Development of a preliminary proposal investigating AI-supported emergency department triage in Caribbean healthcare settings
+├── src/          Source code directory (currently empty) 
 
-## Repository Status
-This repository is actively maintained as part of the CariSurg Healthcare AI Training Programme. 
+├── README.md 
 
-## Technologies Used
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Jupyter Notebook
-- Google Colab
+├── requirements.txt 
+
+├── LICENSE 
+
+└── .gitignore
+
+## Contributing
+This repository was created as part of an educational training programme. Contributions should be made through feature branches and pull requests to maintain a clear version history. 
+
+## License
+This project is licensed under the MIT License. See `LICENSE` file for details. 
 
 ## Author
 Sariana Ramoutar
