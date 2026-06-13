@@ -15,17 +15,31 @@ git clone https://github.com/sarianaramoutar/carisurg-portfolio.git
 
 cd carisurg-portfolio
 
-Create and activate a virtual environment: python -m venv .venv
+Create and activate a virtual environment: 
+```bash
+python -m venv .venv
+```
 
-Windows: .venv\Scripts\activate
+Windows: 
+```bash
+.venv\Scripts\activate
+```
 
-macOS/Linux: source .venv/bin/activate
+macOS/Linux: 
+```bash
+source .venv/bin/activate
+```
 
-Install the required libraries: pip install -r requirements.txt
+Install the required libraries: 
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage 
 Open the Jupyter notebooks located in the notebooks/ directory:
+```bash
 jupyter lab
+```
 
 The reports and written submissions can be found in the docs/ directory as PDF files.
 
