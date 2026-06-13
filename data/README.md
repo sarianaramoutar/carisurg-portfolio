@@ -10,6 +10,8 @@ The Week 0 dataset contained emergency triage data used for data cleaning, explo
 ## Usage
 The dataset can be loaded into Python using `pandas`:
 
+``` bash
 import pandas as pd 
 
 df = pd.read_csv("data/week0_emergency_triage_dataset_reduced_dirty.csv")
+```
