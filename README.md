@@ -39,6 +39,9 @@ Activities included:
 - Critical analysis of clinical decision-support tools
 - Development of a preliminary proposal investigating AI-supported emergency department triage in Caribbean healthcare settings
 
+## Repository Status
+This repository is actively maintained as part of the CariSurg Healthcare AI Training Programme. 
+
 ## Technologies Used
 - Python
 - Pandas
