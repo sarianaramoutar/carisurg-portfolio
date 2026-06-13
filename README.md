@@ -13,14 +13,15 @@ Jupyter notebooks developed during Week 0, covering:
 
 ### docs/
 Written coursework and project documentation, including: 
-- Week 0 clinical investigations
+- Week 0 clinical analyses
+- Week 0 AI triage framework design
 - Week 1 literature review
-- Week 2 preliminary research proposal
+- Week 1 preliminary research proposal
 
 ### data/
 Datasets used throughout the programme. 
 
-## Project Background
+## Project Themes
 ### Week 0 - Foundations of Clinical Data Science
 Topics explored:
 - Clinical data cleaning
@@ -40,6 +41,7 @@ Activities included:
 - Pandas
 - NumPy
 - Matplotlib
+- Jupyter Notebook
 - Google Colab
 
 ## Author
