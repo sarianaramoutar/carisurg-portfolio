@@ -1,5 +1,5 @@
 # Documentation Folder
-This folder contins the Project Preliminary Proposal, written reports and submissions produced during the CariSurg Healthcare AI Training Programme.
+This folder contains the Project Preliminary Proposal, written reports and submissions produced during the CariSurg Healthcare AI Training Programme.
 
 ## Contents
 ### Week 0 Documents
@@ -16,4 +16,4 @@ These reports summarise findings from the Week 0 exploratory data analysis activ
 These documents contain the literature review, background research and preliminary project proposal developed during Week 1. 
 
 ## Purpose
-THe documents in this folder provide written evidence of the analysis, research and project planning completed throughout the programme. 
+The documents in this folder provide written evidence of the analysis, research and project planning completed throughout the programme. 
