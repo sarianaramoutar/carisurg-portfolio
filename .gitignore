@@ -1,3 +1,21 @@
+# Python (Ignore Python cache files)
 __pycache__/
+*.py[cod]
+
+# Jupyter (Ignore notebook checkpoint files)
 .ipynb_checkpoints/
+
+# Virtual environments (Ignore environment files)
+.venv/
+venv/
+env/
+
+# Environment variables
 .env
+
+# Dataset files
+data/*.csv
+data/*.xlsx
+data/*.xls
+data/*.docx
+data/*.pdf
