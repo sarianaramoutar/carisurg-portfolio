@@ -57,7 +57,7 @@ K -.-> AI4
 
 ## Process Notes
 ### Registration
-Takes 2-3 minutes. AI Opportunity #1 auto-retrieces previous records and streamlines administrative data entry. 
+Takes 2-3 minutes. AI Opportunity #1 auto-retrieves previous records and streamlines administrative data entry. 
 
 ### Nurse Triage
 A 3-5 minute evaluation. AI Opportunity #2 (Main Project) uses recorded inputs (vitals, pain score, history, pregnancy tracking) to assist with explainable ESI category predictions. 
