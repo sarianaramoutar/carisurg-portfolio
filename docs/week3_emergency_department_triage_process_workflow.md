@@ -1,3 +1,5 @@
+# Emergency Department Triage Process at Mercer General ED
+
 ``` mermaid
 flowchart TD
 
@@ -52,3 +54,23 @@ C -.-> AI2
 I -.-> AI3
 K -.-> AI4
 ```
+
+## Process Notes
+### Registration
+Takes 2-3 minutes. AI Opportunity #1 auto-retrieces previous records and streamlines administrative data entry. 
+
+### Nurse Triage
+A 3-5 minute evaluation. AI Opportunity #2 (Main Project) uses recorded inputs (vitals, pain score, history, pregnancy tracking) to assist with explainable ESI category predictions. 
+
+### Zone Split Rules
+ESI 1 routes immediately to the 2 resuscitation beds. 
+
+ESI 2-3 use the ~16 general acute and observation beds. 
+
+ESI 4-5 report to the ~20 seat waiting area and fast-track zones. 
+
+### ED MD Assessment
+Lasts 15-30 minutes per patient. AI Opportunity #3 monitors outstanding test orders and flags delays caused by shared hospital lab/imaging resources. 
+
+### Treatment & Review
+Lasts 30 minutes to 3 hours. AI Opportunity #4 flags delays in physical departure, highlighting severe boarding backlog when ward beds are completely full. 
