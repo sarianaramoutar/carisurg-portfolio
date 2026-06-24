@@ -15,5 +15,17 @@ These reports summarise findings from the Week 0 exploratory data analysis activ
 
 These documents contain the literature review, background research and preliminary project proposal developed during Week 1. 
 
-## Purpose
-The documents in this folder provide written evidence of the analysis, research and project planning completed throughout the programme. 
+### Week 2 Documents
+- `week2_research_work_updated.pdf`
+- `week2_preliminary_proposal_with_automatic_citations.pdf`
+- `week2_snapshot_of_zotero_references.png`
+
+These documents contain the updated literature review and preliminary project proposal with automatic citations and bibliography (Zotero) for Week 2. 
+
+### Week 3 Documents
+- `week3_research_work_updated.pdf`
+- `week3_preliminary_proposal_with_constraints_and_stakeholders.pdf`
+- `week3_mercer_ed_triage_process_workflow_diagram.md`
+- `week3_mercer_ed_triage_process_image.jpeg`
+
+These documents contain the updated research work, the flow diagram of the triage process at Mercer ED, and the updated preliminary project proposal with a new section entitled `Constraints & Stakeholders`, for Week 3. 

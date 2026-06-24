@@ -56,8 +56,8 @@ Notebooks in this folder were created using Google Colab and can be run independ
 ### Viewing Documentation
 The reports, research documents and written submissions can be found in the `docs/` directory as PDF files:
 - `Week 0 reports`
-- `Week 1 literature review`
-- `Week 1 preliminary proposal`
+- `Research Work` for Weeks 1, 2 and 3 (Continuously Updated)
+- `Preliminary Proposal` for Weeks 1, 2 and 3 (Continuously Updated)
 
 ### Data
 Datasets used in this project are described in the `data/` directory. 
