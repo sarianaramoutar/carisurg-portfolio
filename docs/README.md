@@ -29,3 +29,11 @@ These documents contain the updated literature review and preliminary project pr
 - `week3_mercer_ed_triage_process_image.jpeg`
 
 These documents contain the updated research work, the flow diagram of the triage process at Mercer ED, and the updated preliminary project proposal with a new section entitled `Constraints & Stakeholders`, for Week 3. 
+
+### Week 4 Documents
+- `week4_research_work_updated.pdf`
+- `week4_preliminary_proposal_with_risk_analysis.pdf`
+- `week4_risk_register.md`
+- `week4_ai_harm_case_study.md`
+
+These documents contain the updated research work, the risk register, and the updated preliminary project proposal with a new section titled `Risk Analysis`, for Week 4. 
