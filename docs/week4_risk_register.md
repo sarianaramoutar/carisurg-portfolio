@@ -23,7 +23,7 @@ This risk register outlines the core technical, operational, ethical, and equity
 ### Project Title
 **An Explainable AI Assistant to Support Emergency Department Triage in the Caribbean**
 
-This memo summarizes the **three highest-priority risks** identified for the proposed AI-assisted triage system. These risks were selected because they have the greatest potential to affect patient safety, clinical decision-making, and the successful adoption of the system in a live hospital environment. 
+This memo summarises the **three highest-priority risks** identified for the proposed AI-assisted triage system. These risks were selected because they have the greatest potential to affect patient safety, clinical decision-making, and the successful adoption of the system in a live hospital environment. 
 
 ### Risk 1: Incorrect Triage Recommendation
 
