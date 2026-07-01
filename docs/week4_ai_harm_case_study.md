@@ -1,6 +1,6 @@
 # A Real Case Study of Where AI Could Have Caused Harm
 ## Root-Cause Analysis
-Wong, A., Otles, E., Donnelly, J. P., Krumm, A., McCullough, J., DeTroyer-Cooley, O., Pestrue, J., Phillips, M., Konye, J., Penoza, C., Ghous, M., & Singh, K. (2021b). External validation of a widely implemented proprietary sepsis prediction model in hospitalized patients. *JAMA Internal Medicine, 181(8), 1065–1070*. https://doi.org/10.1001/jamainternmed.2021.2626
+Wong, A., Otles, E., Donnelly, J. P., Krumm, A., McCullough, J., DeTroyer-Cooley, O., Pestrue, J., Phillips, M., Konye, J., Penoza, C., Ghous, M., & Singh, K. (2021). External validation of a widely implemented proprietary sepsis prediction model in hospitalized patients. *JAMA Internal Medicine, 181(8), 1065–1070*. https://doi.org/10.1001/jamainternmed.2021.2626
 
 ### 1. What happened?
 
