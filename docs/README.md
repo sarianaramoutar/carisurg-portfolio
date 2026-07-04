@@ -37,3 +37,9 @@ These documents contain the updated research work, the flow diagram of the triag
 - `week4_ai_harm_case_study.md`
 
 These documents contain the updated research work, the risk register, and the updated preliminary project proposal with a new section titled `Risk Analysis`, for Week 4. 
+
+### Week 5 Documents
+- `week5_feasibility_memo.pdf`  (Shareable format)
+- `week5_feasibility_memo.md`
+
+These documents contain the feasibility analysis for the project based on the work done in the `/notebook` directory for Week 5. 
