@@ -47,17 +47,21 @@ jupyter lab
 
 ### Exploring the Notebooks 
 Open any notebook from the `notebooks/` directory, which contains:
-- `Gender data cleaning`
-- `Respiratory rate cleaning and validation`
-- `Clinical data visualisation`
+- `W0 Gender data cleaning`
+- `W0 Respiratory rate cleaning and validation`
+- `W0 Clinical data visualisation`
+- `W5 Clinical data literacy`
+- `W5 Data profiling`
+- `W5 Exploratory visualisations`
 
 Notebooks in this folder were created using Google Colab and can be run independently of each other. 
 
 ### Viewing Documentation
 The reports, research documents and written submissions can be found in the `docs/` directory as PDF files:
 - `Week 0 reports`
-- `Research Work` for Weeks 1-4 (Continuously Updated)
-- `Preliminary Proposal` for Weeks 1-4 (Continuously Updated)
+- `Research Work` for Weeks 1-4
+- `Preliminary Proposal` for Weeks 1-4
+- `Feasibility Memo` for Week 5
 - Other Weekly Documents
 
 ### Data
