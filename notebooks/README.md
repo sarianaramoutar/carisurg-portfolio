@@ -18,3 +18,6 @@ jupyter lab
 - `week5_clinical_data_literacy.ipynb`
 - `week5_data_profiling.ipynb`
 - `week5_exploratory_visualisation.ipynb`
+
+### Week 6 Notebook
+- `week6_baseline_model`
