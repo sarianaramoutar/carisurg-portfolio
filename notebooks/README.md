@@ -20,4 +20,4 @@ jupyter lab
 - `week5_exploratory_visualisation.ipynb`
 
 ### Week 6 Notebook
-- `week6_baseline_model`
+- `week6_baseline_model.ipynb`
