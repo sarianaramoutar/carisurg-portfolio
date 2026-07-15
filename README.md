@@ -76,6 +76,7 @@ The reports, research documents and written submissions can be found in the `doc
 - `Research Work` for Weeks 1-4
 - `Preliminary Proposal` for Weeks 1-4
 - `Feasibility Memo` for Week 5
+- `Baseline Model Report` and `Primary Metric Justification` for Week 6
 - Other Weekly Documents
 
 ### Data

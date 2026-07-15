@@ -43,3 +43,10 @@ These documents contain the updated research work, the risk register, and the up
 - `week5_feasibility_memo.md`
 
 These documents contain the feasibility analysis for the project based on the work done in the `/notebook` directory for Week 5. 
+
+### Week 6 Documents
+- `week6_baseline_model_metric_justification_video.mp4`
+- `week6_baseline_model_metric_justification_slides.pdf`   (Slides for the Video)
+- `week6_baseline_model_report.pdf`
+
+These documents contain the specifics of the baseline models established (DummyClassifier, Logistic Regression, Decision Tree), based on the work done in the `/notebook` directory for Week 6. 
