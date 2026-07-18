@@ -21,3 +21,6 @@ jupyter lab
 
 ### Week 6 Notebook
 - `week6_baseline_model.ipynb`
+
+### Week 7 Notebook
+- `week7_optimisation_techniques.ipynb`
