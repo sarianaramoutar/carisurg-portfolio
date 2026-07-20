@@ -50,3 +50,9 @@ These documents contain the feasibility analysis for the project based on the wo
 - `week6_baseline_model_report.pdf`
 
 These documents contain the specifics of the baseline models established (DummyClassifier, Logistic Regression, Decision Tree), based on the work done in the `/notebook` directory for Week 6. 
+
+### Week 7 Documents
+- `week7_cost_benefit_memo.pdf`  (Shareable format)
+- `week7_cost_benefit_memo.md`
+
+These documents contain the costs associated with different trained complex models, in terms of 7 axes; accuracy, macro precision, macro recall, macro F1-score, training time, inference time and interpretability. This work was done based on the code for Week 7 in the `notebooks/` directory. 
