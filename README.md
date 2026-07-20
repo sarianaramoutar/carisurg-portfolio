@@ -19,7 +19,8 @@ The repository is intended for programme instructors, reviewers and other reader
 | **4** | Ethics, Safety & Risk Awareness | Risk register, risk analysis and AI governance documentation |
 | **5** | Clinical Data Exploration | Dataset profiling, exploratory data analysis, feasibility memo and clinical visualisations |
 | **6** | Baseline Machine Learning | Logistic Regression, Decision Tree, DummyClassifier, model evaluation and Explainable AI interpretation |
-| **7+** | *(To be added)* | Future coursework and project development |
+| **7** | Complex Machine Learning and Optimisation | Random Forest, Gradient Boosting and Multi-Layer Perceptron Evaluation and Comparison | 
+| **8+** | *To be added* | Future coursework and project development |
 
 ## Installation
 1. Clone the repository and open it: 
@@ -66,7 +67,8 @@ Open any notebook from the `notebooks/` directory, which contains:
 - `W5 Clinical data literacy`
 - `W5 Data profiling`
 - `W5 Exploratory visualisations`
-- `W6 Baseline model` (Implementation and Evaluation)
+- `W6 Baseline model` (Implementation and Evaluation of 3 baseline models)
+- `W7 Optimisation techniques` (Implementation and Evaluation of 3 complex models and Optimisation of the leading model)
 
 Notebooks in this folder were created using Google Colab and can be run independently of each other. 
 
@@ -77,7 +79,8 @@ The reports, research documents and written submissions can be found in the `doc
 - `Preliminary Proposal` for Weeks 1-4
 - `Feasibility Memo` for Week 5
 - `Baseline Model Report` and `Primary Metric Justification` for Week 6
-- Other Weekly Documents
+- `Cost Benefit Memo` for Week 7
+- `Decision Journal` for documenting major decisions regarding the project made throughout the programme
 
 ### Data
 Datasets used in this project are described in the `data/` directory. 
