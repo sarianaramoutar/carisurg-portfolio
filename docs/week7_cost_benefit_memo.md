@@ -2,7 +2,7 @@
 
 **To:** Dr. De Freitas, Emergency Department Clinical Board and Martina Griffith (Clinical IT Lead)  
 **From:** Sariana Ramoutar  
-**Date:** July 21, 2026
+**Date:** July 21st, 2026  
 **Subject:** Model Optimisation Recommendation for Explainable AI Emergency Department Triage Assistant  
 
 ---
