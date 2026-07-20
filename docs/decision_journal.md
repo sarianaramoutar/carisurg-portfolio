@@ -3,7 +3,7 @@
 > The purpose of this file is to document any major decisions made regarding the main project over the course of the programme. 
 
 ## Model Selection
-**Date:** 20 July, 2026
+**Date:** July 20th, 2026
 ### Context
 - Six machine learning models were benchmarked using the Yale Emergency Department dataset (80/20 train/test split) to determine which offered the most appropriate balance between predictive performance, explainability and practical implementation.
 - The objective was to recommend a model for an explainable AI clinical decision-support system intended to support, rather than replace, Emergency Department triage decisions.
