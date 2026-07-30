@@ -1,12 +1,12 @@
 """
-Data loading and preparation functions for the Emergency Department
-triage prediction project.
+Data loading and cleaning module for Emergency Department Triage Prediction.
 
-This module loads the cleaned Yale EMMLC dataset and prepares the
-feature matrix (X) and target variable (y) ready for modelling.
+This module handles raw dataset ingestion, vital sign type coercion,
+and target variable (ESI) validation.
 """
 
 import pandas as pd
+import numpy as np
 
 # ---------------------------------------------------------------------
 # Constants
@@ -24,47 +24,14 @@ VITAL_SIGNS = [
     "triage_glucose",
 ]
 
-DEMOGRAPHICS = [
-    "age",
-    "gender",
-    "ethnicity",
-    "race",
-    "insurance_type",
-]
-
-ADMIN = [
-    "Unnamed: 0",
-    "dep_name",
-    "patient_id",
-    "encounter_id",
-    "visit_id",
-    "disposition_id",
-]
-
-LEAKAGE = [
-    "n_edvisits",
-    "n_admissions",
-    "admitted_to_hospital",
-    "admission_type",
-    "admission_source",
-    "discharge_disposition",
-    "discharge_destination",
-    "length_of_stay",
-    "admission_to_icu_flag",
-    "icu_stay_days",
-    "mortality_flag",
-    "disposition_dt",
-    "discharge_dt",
-]
-
 
 # ---------------------------------------------------------------------
-# Load dataset
+# Load Raw Data
 # ---------------------------------------------------------------------
 
-def load_data(file_path):
+def load_data(file_path: str) -> pd.DataFrame:
     """
-    Load the cleaned triage dataset.
+    Load raw triage dataset from a CSV file.
 
     Parameters
     ----------
@@ -74,71 +41,60 @@ def load_data(file_path):
     Returns
     -------
     pandas.DataFrame
-        Loaded dataset.
+        Loaded raw dataset.
     """
-
-    return pd.read_csv(file_path)
+    try:
+        df = pd.read_csv(file_path)
+        print(f"✓ Successfully loaded dataset from {file_path} (Shape: {df.shape})")
+        return df
+    except Exception as e:
+        raise FileNotFoundError(f"Failed to load dataset at '{file_path}': {str(e)}")
 
 
 # ---------------------------------------------------------------------
-# Prepare features
+# Clean Data
 # ---------------------------------------------------------------------
 
-def prepare_data(df):
+def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Prepare the feature matrix (X) and target vector (y).
+    Clean raw triage DataFrame:
+      1. Drops rows missing the target variable (ESI).
+      2. Validates ESI values to ensure they are within the clinical range [1, 5].
+      3. Coerces vital signs to numeric types.
 
     Parameters
     ----------
     df : pandas.DataFrame
-        Input dataframe.
+        Raw loaded dataframe.
 
     Returns
     -------
-    X : pandas.DataFrame
-        Prepared feature matrix.
-
-    y : pandas.Series
-        Target variable.
+    pandas.DataFrame
+        Cleaned dataframe ready for feature engineering.
     """
+    df_clean = df.copy()
 
-    exclude_cols = list(
-        set(DEMOGRAPHICS + ADMIN + LEAKAGE + [TARGET])
-    )
+    # 1. Clean and validate Target (ESI)
+    if TARGET not in df_clean.columns:
+        raise KeyError(f"Target column '{TARGET}' not found in dataset.")
 
-    # Keep only columns that actually exist
-    exclude_cols = [
-        col for col in exclude_cols
-        if col in df.columns
-    ]
+    # Drop missing target rows
+    initial_rows = len(df_clean)
+    df_clean = df_clean.dropna(subset=[TARGET])
+    
+    # Ensure target is numeric and within valid ESI range (1 to 5)
+    df_clean[TARGET] = pd.to_numeric(df_clean[TARGET], errors="coerce")
+    df_clean = df_clean[df_clean[TARGET].isin([1.0, 2.0, 3.0, 4.0, 5.0])]
+    df_clean[TARGET] = df_clean[TARGET].astype(int)
 
-    vital_signs = [
-        col for col in VITAL_SIGNS
-        if col in df.columns
-    ]
+    dropped_rows = initial_rows - len(df_clean)
+    if dropped_rows > 0:
+        print(f"✓ Dropped {dropped_rows} rows with invalid/missing target '{TARGET}'.")
 
-    chief_complaints = [
-        col
-        for col in df.columns
-        if col.startswith("cc_")
-        and pd.api.types.is_numeric_dtype(df[col])
-    ]
+    # 2. Coerce vital sign columns to numeric float
+    for col in VITAL_SIGNS:
+        if col in df_clean.columns:
+            df_clean[col] = pd.to_numeric(df_clean[col], errors="coerce")
 
-    selected_features = list(
-        set(vital_signs + chief_complaints)
-    )
-
-    final_features = [
-        col
-        for col in selected_features
-        if col not in exclude_cols
-    ]
-
-    X = df[final_features].copy()
-
-    # Retain the median-imputation step from Week 7.
-    X = X.fillna(X.median())
-
-    y = df[TARGET].copy()
-
-    return X, y
+    print(f"✓ Cleaned dataset ready with {len(df_clean)} records.")
+    return df_clean
