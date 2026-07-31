@@ -1,7 +1,7 @@
 """
 Main training pipeline script for the Emergency Department triage prediction project.
 
-Executes the modular end-to-end workflow utilizing src/ helper modules.
+Executes the modular end-to-end workflow utilising src/ helper modules.
 """
 
 import os
