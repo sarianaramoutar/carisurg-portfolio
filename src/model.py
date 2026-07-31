@@ -1,6 +1,7 @@
 """
-Model building, training, prediction and evaluation for Emergency Department triage prediction.
+Model construction, training, prediction, evaluation, and persistence for Emergency Department triage prediction.
 
+Supports multiple machine learning models through a configuration-based interface.
 """
 
 import time
@@ -14,7 +15,7 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
 
 # ---------------------------------------------------------------------
-# 1. Build Model (Supports Optimised RF, Logistic Regression, & Gradient Boosting)
+# 1. Build Model (Supports Random Forest, Logistic Regression, & Gradient Boosting)
 # ---------------------------------------------------------------------
 
 def build_model(config: dict):
@@ -117,7 +118,8 @@ def evaluate_model(model, X_test, y_test) -> dict:
       - Macro Precision, Recall, and F1
       - Breakdown for every ESI level (ESI-1, ESI-2, ESI-3, ESI-4, ESI-5)
       - Total and per-patient inference latency (ms)
-
+    These metrics allow overall performance and individual ESI levels to be evaluated separately.
+    
     Parameters
     ----------
     model : trained estimator
@@ -132,7 +134,7 @@ def evaluate_model(model, X_test, y_test) -> dict:
     dict
         Dictionary containing overall and per-class metrics.
     """
-    # 1. Benchmark Inference Latency
+    # 1. Benchmark Inference Latency - Measure how long prediction takes.
     start_time = time.perf_counter()
     y_pred = model.predict(X_test)
     end_time = time.perf_counter()
@@ -173,7 +175,10 @@ def evaluate_model(model, X_test, y_test) -> dict:
         metrics[f"ESI-{level_int} Recall"] = float(per_class_recall[idx])
         metrics[f"ESI-{level_int} Precision"] = float(per_class_precision[idx])
         metrics[f"ESI-{level_int} F1"] = float(per_class_f1[idx])
-
+    # Store metrics for every ESI level individually.
+    # This allows performance to be assessed for clinically
+    # important triage categories based on project priorities
+    
     return metrics
 
 
