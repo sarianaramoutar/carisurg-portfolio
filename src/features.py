@@ -6,7 +6,7 @@ This module is responsible for:
   1. Creating domain-specific clinical features (e.g., Shock Index, ratios).
   2. Selecting valid feature columns while excluding demographics, admin, and leakage data.
   3. Imputing missing values safely without data leakage.
-  4. Standardising numerical features for models requiring scaled inputs.
+  4. Standardising features for models that require scaling (e.g., Logistic Regression and Neural Networks).
 """
 
 import numpy as np
@@ -31,6 +31,7 @@ VITAL_SIGNS = [
     "triage_glucose",
 ]
 
+# Demographic variables are excluded to reduce the risk of introducing unfair bias into the model.
 DEMOGRAPHICS = [
     "age",
     "gender",
@@ -48,6 +49,7 @@ ADMIN = [
     "disposition_id",
 ]
 
+# Variables that would reveal the outcome after triage and therefore must not be used for prediction.
 LEAKAGE = [
     "n_edvisits",
     "n_admissions",
@@ -85,7 +87,8 @@ def add_clinical_features(df: pd.DataFrame) -> pd.DataFrame:
     """
     df_eng = df.copy()
 
-    # Shock Index = Heart Rate / Systolic Blood Pressure (Key indicator of clinical shock)
+    # Shock Index = Heart Rate ÷ Systolic Blood Pressure.
+    # Higher values may indicate circulatory shock.
     if "triage_vital_hr" in df_eng.columns and "triage_vital_sbp" in df_eng.columns:
         df_eng["eng_shock_index"] = (
             df_eng["triage_vital_hr"] / df_eng["triage_vital_sbp"].replace(0, np.nan)
@@ -103,7 +106,7 @@ def add_clinical_features(df: pd.DataFrame) -> pd.DataFrame:
             df_eng["triage_glucose"] > 180
         ).astype(int)
 
-    # Hypothermia indicator (Temperature < 35°C)
+    # Hypothermia indicator (Temperature < 35°C) --> converted from Fahrenheit to Celsius
     if "triage_vital_temp" in df_eng.columns:
         df_eng["eng_hypothermia"] = (
             df_eng["triage_vital_temp"] < 35
@@ -158,7 +161,7 @@ def select_features(df: pd.DataFrame) -> pd.DataFrame:
         if col.startswith("eng_")
     ]
 
-    # Gather candidate features
+    # Combine all allowed predictor variables
     candidate_features = set(VITAL_SIGNS + chief_complaints + engineered_cols)
 
     # Keep only features present in dataset and not in the exclusion list
@@ -199,7 +202,7 @@ def impute_features(X_train: pd.DataFrame, X_test: pd.DataFrame):
     """
     imputer = SimpleImputer(strategy="median")
 
-    # Fit on X_train, transform both sets
+    # Learn median values from the training data only, then apply the same values to both datasets
     X_train_array = imputer.fit_transform(X_train)
     X_test_array = imputer.transform(X_test)
 
@@ -241,7 +244,7 @@ def scale_features(X_train: pd.DataFrame, X_test: pd.DataFrame):
     X_train_array = scaler.fit_transform(X_train)
     X_test_array = scaler.transform(X_test)
 
-    # Reconstruct DataFrames to retain column names
+    # Convert back to DataFrames so feature names are preserved
     X_train_scaled = pd.DataFrame(X_train_array, columns=X_train.columns, index=X_train.index)
     X_test_scaled = pd.DataFrame(X_test_array, columns=X_test.columns, index=X_test.index)
 
