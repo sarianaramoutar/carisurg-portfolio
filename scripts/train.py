@@ -1,7 +1,8 @@
 """
-Main training pipeline script for the Emergency Department triage prediction project.
+Main training pipeline for the Emergency Department triage prediction project.
 
-Executes the modular end-to-end workflow utilising src/ helper modules.
+Runs the complete machine learning workflow by coordinating the
+modular functions provided in the src/ package.
 """
 
 import os
@@ -9,7 +10,7 @@ import sys
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 
-# Ensure Python can locate project modules inside 'src/'
+# Allow imports from the project's src/ package.
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
@@ -31,7 +32,7 @@ def main():
     seed = cfg.get("seed", 42)
     print(f"✓ Configuration successfully loaded from '{args.config}' (Seed: {seed})")
 
-    # 2. Ensure Output Folders Exist (using src/utils.py)
+    # 2. Create output folders if required (using src/utils.py)
     for _, folder_path in cfg.get("paths", {}).items():
         create_folder(folder_path)
 
@@ -42,7 +43,7 @@ def main():
     cleaned_df = clean_data(raw_df)
 
     # 4. Feature Engineering & Feature Selection
-    print("\n[Step 2/5] Engineering clinical features & extracting valid predictors...")
+    print("\n[Step 2/5] Engineering clinical features and selecting predictor variables...")
     engineered_df = add_clinical_features(cleaned_df)
 
     target_col = cfg["data"]["target"]
@@ -52,7 +53,7 @@ def main():
     print(f"✓ Extracted {X.shape[1]} predictor features for model training.")
 
     # 5. Stratified Split & Leakage-Free Imputation
-    print("\n[Step 3/5] Splitting data (80% Train / 20% Test) & imputing missing values...")
+    print("\n[Step 3/5] Splitting the dataset (80% training / 20% testing) and imputing missing values...")
     X_train, X_test, y_train, y_test = train_test_split(
         X, 
         y, 
@@ -72,7 +73,7 @@ def main():
     print(f"✓ Training execution time: {format_time(train_time)}")
 
     # 7. Evaluate Model Metrics
-    print("\n[Step 5/5] Evaluating performance across overall & ESI 1–5 metrics...")
+    print("\n[Step 5/5] Evaluating overall performance and per-class ESI metrics...")
     metrics = evaluate_model(trained_model, X_test_imp, y_test)
 
     print("\n" + "-" * 48)
