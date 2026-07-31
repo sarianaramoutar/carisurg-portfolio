@@ -1,8 +1,9 @@
 """
 Data loading and cleaning module for Emergency Department Triage Prediction.
 
-This module handles raw dataset ingestion, vital sign type coercion,
-and target variable (ESI) validation.
+This module loads the raw Emergency Department triage dataset,
+validates the target variable (ESI), and converts clinical
+vital sign columns into numeric values for later processing.
 """
 
 import pandas as pd
@@ -91,10 +92,11 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     if dropped_rows > 0:
         print(f"✓ Dropped {dropped_rows} rows with invalid/missing target '{TARGET}'.")
 
-    # 2. Coerce vital sign columns to numeric float
+    # 2. Convert vital sign columns to numeric values
+    # Invalid entries become NaN so they can be handled later during feature engineering or model preparation. 
     for col in VITAL_SIGNS:
         if col in df_clean.columns:
             df_clean[col] = pd.to_numeric(df_clean[col], errors="coerce")
 
-    print(f"✓ Cleaned dataset ready with {len(df_clean)} records.")
+    print(f"✓ Dataset cleaned successfully ({len(df_clean)} records remaining).")
     return df_clean
