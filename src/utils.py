@@ -1,11 +1,13 @@
 """
-Shared utility helper functions for the Emergency Department triage pipeline.
+Utility functions used throughout the Emergency Department triage pipeline.
 
-Handles recurring operational tasks:
+These functions are model-independent and can be reused across training, evaluation, and deployment workflows.
+
+Provides support for:
   1. Parsing command-line arguments.
-  2. Loading YAML configuration files safely.
+  2. Loading YAML configuration settings.
   3. Creating output directories.
-  4. Formatting raw execution time into human-readable strings.
+  4. Formatting execution time for reporting and logging.
 """
 
 import argparse
@@ -15,7 +17,7 @@ import yaml
 
 def parse_args():
     """
-    Parse command-line arguments for training script execution.
+    Parse command-line arguments used when running the training pipeline.
 
     Returns
     -------
@@ -36,7 +38,7 @@ def parse_args():
 
 def load_config(config_path: str) -> dict:
     """
-    Load and parse a YAML configuration file safely.
+    Load configuration settings from a YAML file.
 
     Parameters
     ----------
