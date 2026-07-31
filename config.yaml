@@ -5,12 +5,13 @@
 # Global random seed for reproducibility
 seed: 42
 
-# Data Ingestion Settings
+# Dataset Settings
 data:
   raw_path: "data/yaleemmlc_admissionprediction_triage.csv"
   target: "esi"
 
 # Model Selection & Hyperparameters
+# Change "model_type" to switch between available models.
 model:
   model_type: "random_forest"  # Options: "random_forest", "logistic_regression", "gradient_boosting"
   hyperparameters:
