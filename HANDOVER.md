@@ -1,4 +1,4 @@
-# Handover Document
+# CARISURG PROJECT HANDOVER DOCUMENT
 
 ## 1. Project Summary
 
@@ -147,10 +147,8 @@ python scripts/train.py --config config.yaml
 
 ---
 
-## 8. Project Contact
+## 8. Contact
 
-**Developer:** Sariana Ramoutar
-
-**Programme:** CariSurg MedTech Pathways Programme – Healthcare AI Cohort (2026)
-
+**Developer:** Sariana Ramoutar  
+**Programme:** CariSurg MedTech Pathways Programme – Healthcare AI Cohort (2026)  
 **Contact:** sarianaivramoutar@gmail.com
