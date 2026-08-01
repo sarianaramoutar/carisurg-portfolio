@@ -2,16 +2,18 @@
 
 ## 1. Project Summary
 
-This project implements a modular machine learning pipeline for Emergency Department (ED) triage prediction using the Emergency Severity Index (ESI 1–5). The pipeline loads and cleans patient data, engineers clinical features, trains a machine learning model, evaluates its performance, and saves the trained model for future use.
+This project develops an explainable machine learning pipeline for Emergency Department (ED) triage prediction using the Emergency Severity Index (ESI 1–5). The pipeline processes clinical data, creates relevant features, trains and evaluates machine learning models, and saves the final trained model. The aim is to support clinical decision-making by providing an AI-based triage assistant while keeping clinicians responsible for final decisions.
 
 ---
 
-## 2. Final Model
+## 2. Final Model Decision
 
 > [!IMPORTANT]
-> **Selected Model:** Optimised Random Forest Classifier
+> **Selected Model:** Optimised Random Forest Classifier  
 >
-> Logistic Regression is also included in the project as a baseline model and alternative candidate. The model used for training can be changed in `config.yaml`.
+> **Reason:** Random Forest was selected because it provides the best balance between predictive performance, ability to model complex clinical relationships, and explainability through feature importance analysis.
+
+Logistic Regression remains included as a baseline comparison model due to its simplicity and high interpretability.
 
 ---
 
@@ -20,20 +22,18 @@ This project implements a modular machine learning pipeline for Emergency Depart
 ```text
 carisurg-portfolio/
 │
-├── data/              Dataset location (not included in the repository)
-├── docs/              Reports, proposals, and project documentation
+├── data/              Dataset location (not included in repository)
+├── docs/              Reports, decision logs, and project documentation
 ├── notebooks/         Development and analysis notebooks
 ├── scripts/           Executable project scripts
-│   └── train.py
-├── src/               Modular source code
-│   ├── data.py
-│   ├── features.py
-│   ├── model.py
-│   └── utils.py
-├── tests/             Automated sanity tests
-│   ├── test_data.py
-│   └── test_train.py
-├── config.yaml        Project configuration
+│   └── train.py       Main training pipeline
+├── src/               Modular Python source code
+│   ├── data.py        Data loading and cleaning functions
+│   ├── features.py    Clinical feature engineering functions
+│   ├── model.py       Model training and evaluation functions
+│   └── utils.py       Helper functions
+├── tests/             Automated tests
+├── config.yaml        Model and pipeline configuration
 ├── README.md          Project overview
 ├── requirements.txt   Python package dependencies
 ├── LICENSE            MIT License
@@ -42,15 +42,12 @@ carisurg-portfolio/
 
 ---
 
-## 4. Getting Started
-
-> [!NOTE]
-> Before running the project:
->
-> * Install Python 3.
-> * Install the required packages from `requirements.txt`.
-> * Place `yaleemmlc_admissionprediction_triage.csv` inside the `data/` folder.
-> * Check that the dataset path in `config.yaml` is correct.
+## 4. Setup Instructions
+Before running the project:
+* Install Python 3.
+* Install the required packages from `requirements.txt`.
+* Place `yaleemmlc_admissionprediction_triage.csv` inside the `data/` folder.
+* Check that the dataset path in `config.yaml` is correct.
 
 ### Clone the repository
 
@@ -78,52 +75,59 @@ pip install -r requirements.txt
 ## 5. Running the Project
 
 ### Run the sanity tests
-
-Before training, verify that the project is set up correctly.
+The test suite checks that data loading, feature creation, and the training pipeline work correctly.
 
 ```bash
 pytest tests/
 ```
 
 The test suite checks that:
-
 * The dataset loads successfully.
 * The required schema and ESI target values are valid.
 * The complete training pipeline runs without errors on a small sample.
 
-### Train the model
-
-Run the full training pipeline using:
+### Train the machine learning model
+Run the complete training pipeline using:
 
 ```bash
 python scripts/train.py --config config.yaml
 ```
 
-> [!NOTE]
-> During execution, the pipeline will:
->
-> 1. Load the configuration file.
-> 2. Load and clean the dataset.
-> 3. Create engineered clinical features.
-> 4. Select predictor variables.
-> 5. Split the data into training and testing sets.
-> 6. Impute missing values.
-> 7. Train the selected model.
-> 8. Evaluate model performance.
-> 9. Save the trained model.
+During execution, The pipeline will:
+1. Load project configuration.
+2. Load and clean the dataset.
+3. Create engineered clinical features.
+4. Prepare predictor variables.
+5. Split data into training and testing sets.
+6. Train the selected machine learning model.
+7. Evaluate model performance.
+8. Save the trained model.
 
 ---
 
-## 6. Changing the Model
+## 6. Data Location and Governance
+The dataset should be placed in:
 
-The model used by the training pipeline is controlled in `config.yaml`.
+```
+data/yaleemmlc_admissionprediction_triage.csv
+```
 
+The dataset used throughout this project was provided by the CariSurg Healthcare AI Training Programme for educational and research purposes.
+
+Due to programme data governance requirements, the original dataset is not included in this repository. Users wishing to reproduce the analysis must obtain the dataset through the appropriate programme channels or use an equivalent publicly available dataset.
+
+## 7. Model Configuration
+The model used by the training pipeline is controlled through `config.yaml`.
+
+The selected model can be changed by updating the model configuration.
+
+Example:
 ```yaml
 model:
   model_type: "random_forest"
 ```
 
-Available options are:
+Available models include:
 
 | Model               | `model_type`            |
 | ------------------- | ----------------------- |
@@ -139,16 +143,16 @@ python scripts/train.py --config config.yaml
 
 ---
 
-## 7. Known Limitations
+## 8. Known Limitations
 
-* The project was developed using the Yale Emergency Department dataset and has not been validated on Caribbean clinical data.
-* The repository does not include the dataset. It must be obtained separately and placed in the `data/` folder before running the pipeline.
-* This project is intended for research and educational purposes and should not be used as a replacement for clinical judgement.
+* The model was developed using the Yale Emergency Department dataset and has not been validated on Caribbean clinical data.
+* The dataset represents a specific healthcare setting and may not fully capture differences in patient populations, resources, or clinical workflows in other regions.
+* The system is designed as a clinical decision-support prototype and should not replace professional clinical judgement.
 
 ---
 
-## 8. Contact
+## 9. Contact
 
 **Developer:** Sariana Ramoutar  
 **Programme:** CariSurg MedTech Pathways Programme – Healthcare AI Cohort (2026)  
-**Contact:** sarianaivramoutar@gmail.com
+**Email:** sarianaivramoutar@gmail.com
