@@ -54,5 +54,11 @@ These documents contain the specifics of the baseline models established (DummyC
 ### Week 7 Documents
 - `week7_cost_benefit_memo.pdf`  (Shareable format)
 - `week7_cost_benefit_memo.md`
+- `week7_decision_journal.md`
 
 These documents contain the costs associated with different trained complex models, in terms of 7 axes; accuracy, macro precision, macro recall, macro F1-score, training time, inference time and interpretability. This work was done based on the code for Week 7 in the `notebooks/` directory. 
+
+### Week 8 Document
+- `week8_model_selection.md`
+
+This document contains a table that showcases the final model and links this decision back to the `week7_decision_journal.md`. 
