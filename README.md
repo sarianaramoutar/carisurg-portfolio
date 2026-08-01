@@ -2,7 +2,7 @@
 A portfolio repository containing coursework completed for the CariSurg Healthcare AI Training Programme 2026.
 
 ## Purpose
-This repository documents work completed during the CariSurg Healthcare AI Training Programme. It contains exploratory data analysis notebooks, technical reports and research documents developed throughout the programme. 
+This repository documents work completed during the CariSurg Healthcare AI Training Programme. It contains exploratory data analysis notebooks, technical reports, research documents and a modular machine learning pipeline developed throughout the programme. 
 
 The project focuses on clinical data analysis, machine learning and explainable AI for emergency department triage, with the long-term goal of supporting clinical decision-making and improving patient prioritisation in Caribbean healthcare settings. 
 
@@ -20,7 +20,8 @@ The repository is intended for programme instructors, reviewers and other reader
 | **5** | Clinical Data Exploration | Dataset profiling, exploratory data analysis, feasibility memo and clinical visualisations |
 | **6** | Baseline Machine Learning | Logistic Regression, Decision Tree, DummyClassifier, model evaluation and Explainable AI interpretation |
 | **7** | Complex Machine Learning and Optimisation | Random Forest, Gradient Boosting and Multi-Layer Perceptron Evaluation and Comparison | 
-| **8+** | *To be added* | Future coursework and project development |
+| **8** | Reproducibility & Modular Project Design | Modular source refactoring (`src/`), YAML config management, end-to-end training pipeline script (`scripts/train.py`), unit test suite (`pytest`), and handover documentation | 
+| **9+** | *To be added* | Future coursework and project development |
 
 ## Installation
 1. Clone the repository and open it: 
@@ -35,8 +36,6 @@ cd carisurg-portfolio
 python -m venv .venv
 ```
 
-3. Activate the virtual environment:
-
 **Windows**
 ```bash
 .venv\Scripts\activate
@@ -47,20 +46,35 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-4. Install the required libraries: 
+3. Install the required libraries: 
 ```bash
 pip install -r requirements.txt
 ```
 
 ## Usage 
-### Running the Notebooks
-Launch Jupyter Lab
+### Running Automated Tests
+Run the test suite to check that data loading, feature creation, and model training components are working correctly:
+
+```bash
+pytest tests/
+```
+
+### Training the Machine Learning Model
+The main training pipeline can be run using: 
+
+```bash
+python scripts/train.py --config config.yaml
+```
+This script loads the dataset, performs preprocessing, creates clinical features, trains the optimised Random Forest model, evaluates performance, and saves the results.
+
+### Exploring the Notebooks 
+Launch Jupyter Lab:
+
 ```bash
 jupyter lab
 ```
 
-### Exploring the Notebooks 
-Open any notebook from the `notebooks/` directory, which contains:
+The `notebooks/` directory contains:
 - `W0 Gender data cleaning`
 - `W0 Respiratory rate cleaning and validation`
 - `W0 Clinical data visualisation`
@@ -70,27 +84,29 @@ Open any notebook from the `notebooks/` directory, which contains:
 - `W6 Baseline model` (Implementation and Evaluation of 3 baseline models)
 - `W7 Optimisation techniques` (Implementation and Evaluation of 3 complex models and Optimisation of the leading model)
 
-Notebooks in this folder were created using Google Colab and can be run independently of each other. 
+> The notebooks were created using Google Colab and can be run independently.
 
 ### Viewing Documentation
-The reports, research documents and written submissions can be found in the `docs/` directory as PDF files:
+Reports, research documents, and project documentation can be found in the `docs/` directory:
 - `Week 0 reports`
 - `Research Work` for Weeks 1-4
 - `Preliminary Proposal` for Weeks 1-4
 - `Feasibility Memo` for Week 5
 - `Baseline Model Report` and `Primary Metric Justification` for Week 6
-- `Cost Benefit Memo` for Week 7
-- `Decision Journal` for documenting major decisions regarding the project made throughout the programme
+- `Cost Benefit Memo` and `Decision Journal` for Week 7
+- `Model Selection` for Week 8
+
+> The `HANDOVER.md` file exists in the main part of the repo, containing setup instructions and the project handover guide. 
 
 ### Data
 Datasets used in this project are described in the `data/` directory. 
 
 The datasets used throughout the CariSurg Healthcare AI Training Programme were provided by the programme team for educational purposes.
 
-To respect programme guidelines and data-governance considerations, the original datasets are not redistributed within this repository. Users wishing to reproduce the analyses should obtain the relevant datasets directly through the programme or use equivalent publicly available datasets.
+> To respect programme guidelines and data-governance considerations, the original datasets are not redistributed within this repository. Users wishing to reproduce the analyses should obtain the relevant datasets directly through the programme or use an equivalent publicly available dataset.
 
 ## Reproducibility
-To ensure that results are reproducible across different environments, all machine learning models in this repository use a fixed random seed:
+To improve reproducibility, all model development uses a fixed random seed:
 
 ```python
 random_state = 42
@@ -101,14 +117,22 @@ This random seed was used for the train/test split and all baseline machine lear
 ## Repository Structure
 ```text
 carisurg-portfolio/
-
-├── data/              Datasets used throughout the programme
-├── docs/              Reports, proposals and written submissions
-├── notebooks/         Jupyter notebooks for analysis
-├── src/               Source code and future project scripts
-├── README.md          Project overview and documentation
+│
+├── data/              Dataset location (not included in repository)
+├── docs/              Reports, decision logs, and project documentation
+├── notebooks/         Development and analysis notebooks
+├── scripts/           Executable project scripts
+│   └── train.py       Main training pipeline
+├── src/               Modular Python source code
+│   ├── data.py        Data loading and cleaning functions
+│   ├── features.py    Clinical feature engineering functions
+│   ├── model.py       Model training and evaluation functions
+│   └── utils.py       Helper functions
+├── tests/             Automated tests
+├── config.yaml        Model and pipeline configuration
+├── README.md          Project overview
 ├── requirements.txt   Python package dependencies
-├── LICENSE            MIT license
+├── LICENSE            MIT License
 └── .gitignore         Files excluded from version control
 ```
 
