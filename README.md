@@ -117,19 +117,22 @@ This random seed was used for the train/test split and all baseline machine lear
 ## Repository Structure
 ```text
 carisurg-portfolio/
-
-├── data/              Dataset files (not included in repository)
-├── docs/              Reports, decision logs, and written documentation
-├── notebooks/         Jupyter notebooks for analysis and development
+│
+├── data/              Dataset location (not included in repository)
+├── docs/              Reports, decision logs, and project documentation
+├── notebooks/         Development and analysis notebooks
 ├── scripts/           Executable project scripts
-│   └── train.py       Main model training pipeline
-├── src/               Reusable Python modules
+│   └── train.py       Main training pipeline
+├── src/               Modular Python source code
+│   ├── data.py        Data loading and cleaning functions
+│   ├── features.py    Clinical feature engineering functions
+│   ├── model.py       Model training and evaluation functions
+│   └── utils.py       Helper functions
 ├── tests/             Automated tests
-├── config.yaml        Model and pipeline configuration settings
-├── HANDOVER.md        Project setup and handover guide
-├── requirements.txt   Required Python packages
+├── config.yaml        Model and pipeline configuration
+├── README.md          Project overview
+├── requirements.txt   Python package dependencies
 ├── LICENSE            MIT License
-├── README.md          Repository overview
 └── .gitignore         Files excluded from version control
 ```
 
