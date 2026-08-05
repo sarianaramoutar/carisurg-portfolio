@@ -21,7 +21,8 @@ The repository is intended for programme instructors, reviewers and other reader
 | **6** | Baseline Machine Learning | Logistic Regression, Decision Tree, DummyClassifier, model evaluation and Explainable AI interpretation |
 | **7** | Complex Machine Learning and Optimisation | Random Forest, Gradient Boosting and Multi-Layer Perceptron Evaluation and Comparison | 
 | **8** | Reproducibility & Modular Project Design | Modular source refactoring (`src/`), YAML config management, end-to-end training pipeline script (`scripts/train.py`), unit test suite (`pytest`), and handover documentation | 
-| **9+** | *To be added* | Future coursework and project development |
+| **9** | Designing & Prototyping Human-Centred System (HCI/HRI) | Co-Design Canvas, System Requirements Document, and User Interface Mock-ups (Triage Nurse Tablet & Admin Dashboard) | 
+| **10+** | *To be added* | Future coursework and project development |
 
 ## Installation
 1. Clone the repository and open it: 
@@ -95,6 +96,7 @@ Reports, research documents, and project documentation can be found in the `docs
 - `Baseline Model Report` and `Primary Metric Justification` for Week 6
 - `Cost Benefit Memo` and `Decision Journal` for Week 7
 - `Model Selection` for Week 8
+- `System Requirements` and `Interface Design` for Week 9
 
 > The `HANDOVER.md` file exists in the main part of the repo, containing setup instructions and the project handover guide. 
 

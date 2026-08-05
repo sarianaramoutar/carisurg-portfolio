@@ -62,3 +62,11 @@ These documents contain the costs associated with different trained complex mode
 - `week8_model_selection.md`
 
 This document contains a table that showcases the final model and links this decision back to the `week7_decision_journal.md`. 
+
+### Week 9 Documents
+- `week9_system_requirements.pdf`  (Shareable format)
+- `week9_system_requirements.md`
+- `week9_interface_design_and_system_mockups.md`
+- `week9_codesign_canvas.pdf`
+
+These documents contain documents that speak about the actual implementation of the AI system in a real ED workflow setting. This includes the system requirements, draft dashboard views for both a triage nurse and admin, and a co-design canvas to answer basic questions about the implementation. 
